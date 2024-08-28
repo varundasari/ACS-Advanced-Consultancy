@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Social Awareness Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+          <img src="logo.jpg" alt="Avatar" class="avatar" style="width: 5%;
+          border-radius: 3%;";/>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="campaigns.html">Campaigns</a>
+            <a href="login.html">Login</a>
+        </nav>
+        <input type="text" placeholder="Search campaigns...">
+    </header>
+    <main class="main-content">
+        <h1>Contact Us</h1>
+        <p>If you have any questions or concerns, please reach out to us using the form below:</p>
+        <form id="contact-form" class="form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Social Awareness Platform</p>
+        <div>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        <div class="social-media">
+            <!-- Social media links -->
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

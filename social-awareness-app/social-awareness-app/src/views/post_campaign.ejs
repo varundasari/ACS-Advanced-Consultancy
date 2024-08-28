@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Campaign</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="/images/logo.jpg" alt="Avatar" class="avatar" style="inline-size: 5%; border-radius: 3%;">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <% if (isAuthenticated) { %>
+                <a href="/logout" id="auth-link">Logout</a>
+            <% } else { %>
+                <a href="/auth/login" id="auth-link">Login</a>
+            <% } %>
+        </nav>
+        <input type="text" placeholder="Search campaigns...">
+    </header>
+    
+    <main class="main-content">
+        <h1>Post a New Campaign</h1>
+        
+        
+        <form id="campaign-form" class="form" action="/post_campaign" method="POST">
+            <div class="form-group">
+                <label for="title">Campaign Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Campaign Description</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="business">Business Name (Optional)</label>
+                <input type="text" id="business" name="business">
+            </div>
+            <button type="submit" class="btn">Submit Campaign</button>
+        </form>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Social Awareness Platform</p>
+        <div>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+        </div>
+    </footer>
+    
+    <script src="/scripts.js"></script>
+</body>
+</html>

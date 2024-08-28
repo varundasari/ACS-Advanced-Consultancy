@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Campaign Approval</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="/images/logo.jpg" alt="Logo" class="avatar" style="inline-size: 5%; border-radius: 3%;">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <% if (isAuthenticated) { %>
+                <a href="/logout">Logout</a>
+            <% } else { %>
+                <a href="/auth/login">Login</a>
+            <% } %>
+        </nav>
+        <input type="text" placeholder="Search campaigns...">
+    </header>
+    
+    <main class="main-content">
+        <h1>Campaign Approval</h1>
+        <% if (isAuthenticated) { %>
+            <section class="campaign-approval-list">
+                <% if (campaigns && campaigns.length > 0) { %>
+                    <% campaigns.forEach(campaign => { %>
+                        <div class="campaign-item">
+                            <h2><%= campaign.title %></h2>
+                            <p><%= campaign.description %></p>
+                            <p><strong>Business:</strong> <%= campaign.business %></p>
+                            <div class="admin-controls">
+                                <form action="/approve_campaign/<%= campaign.id %>" method="POST">
+                                    <button type="submit" class="btn-approve">Approve</button>
+                                </form>
+                                <form action="/reject_campaign/<%= campaign.id %>" method="POST">
+                                    <button type="submit" class="btn-reject">Reject</button>
+                                </form>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>No campaigns to approve.</p>
+                <% } %>
+            </section>
+        <% } else { %>
+            <p>You do not have access to this page. Please <a href="/auth/login">log in</a> to continue.</p>
+        <% } %>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Social Awareness Platform</p>
+        <div>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+        </div>
+    </footer>
+    
+    <script src="/scripts.js"></script>
+</body>
+</html>
